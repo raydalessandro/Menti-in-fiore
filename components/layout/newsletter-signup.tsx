@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { BlobShape } from '@/components/ui/blob-shape'
+import { Mail, Sparkles } from 'lucide-react'
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState('')
@@ -21,41 +23,68 @@ export function NewsletterSignup() {
   }
 
   return (
-    <div className="bg-verde-salvia/10 py-12">
-      <div className="container-ear">
+    <section className="relative overflow-hidden bg-gradient-to-br from-viola-sogno-light via-rosa-pastello-lighter to-giallo-sole-light py-16">
+      {/* Blob decorativi */}
+      <BlobShape color="yellow" size="lg" className="absolute -left-24 top-10 opacity-30" />
+      <BlobShape color="pink" size="md" className="absolute -right-16 bottom-10 opacity-40 animate-float-slow" />
+
+      <div className="container-ear relative z-10">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 font-heading text-2xl font-semibold">
-            Ricevi Consigli Settimanali
+          {/* Icon decorativo */}
+          <div className="mb-6 inline-flex items-center justify-center rounded-full bg-white/80 p-4 shadow-soft backdrop-blur-sm">
+            <Mail className="h-8 w-8 text-rosa-pastello" />
+          </div>
+
+          <h2 className="mb-4 font-heading text-3xl font-bold text-nero-carbone md:text-4xl">
+            💌 Ricevi Consigli Settimanali
           </h2>
-          <p className="mb-6 text-grigio-medio">
-            Iscriviti alla newsletter per ricevere guide, attività e risorse direttamente nella tua casella
+
+          <p className="mb-8 text-lg text-grigio-medio">
+            Iscriviti alla newsletter per ricevere guide, attività e risorse{' '}
+            <span className="font-semibold text-viola-sogno">direttamente nella tua casella</span>
           </p>
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+
+          <form onSubmit={handleSubmit} className="mb-6 flex flex-col gap-3 sm:flex-row">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="La tua email"
+              placeholder="la-tua-email@esempio.com"
               required
               disabled={status === 'loading'}
-              className="flex-1 rounded-md border border-grigio-medio/30 px-4 py-2 focus:border-verde-salvia focus:outline-none focus:ring-2 focus:ring-verde-salvia/50 disabled:opacity-50"
+              className="flex-1 rounded-xl border-2 border-white bg-white/80 px-6 py-3 text-nero-carbone placeholder:text-grigio-medio/60 backdrop-blur-sm transition-all focus:border-rosa-pastello focus:outline-none focus:ring-2 focus:ring-rosa-pastello/30 disabled:opacity-50"
             />
-            <Button type="submit" disabled={status === 'loading'}>
-              {status === 'loading' ? 'Iscrizione...' : 'Iscriviti'}
+            <Button type="submit" size="lg" disabled={status === 'loading'}>
+              {status === 'loading' ? (
+                <>Iscrizione...</>
+              ) : (
+                <>
+                  <Sparkles className="mr-2 h-5 w-5" />
+                  Iscriviti Gratis
+                </>
+              )}
             </Button>
           </form>
+
           {status === 'success' && (
-            <p className="mt-4 text-sm text-verde-salvia">
-              Grazie per esserti iscritto! Controlla la tua email.
-            </p>
+            <div className="rounded-xl bg-verde-menta-light p-4 text-verde-menta-dark shadow-soft">
+              <p className="font-semibold">✨ Grazie per esserti iscritto!</p>
+              <p className="text-sm">Controlla la tua email per confermare l'iscrizione</p>
+            </div>
           )}
+
           {status === 'error' && (
-            <p className="mt-4 text-sm text-red-600">
-              Qualcosa è andato storto. Riprova più tardi.
-            </p>
+            <div className="rounded-xl bg-red-50 p-4 text-red-600 shadow-soft">
+              <p className="font-semibold">😔 Qualcosa è andato storto</p>
+              <p className="text-sm">Riprova più tardi o contattaci per assistenza</p>
+            </div>
           )}
+
+          <p className="mt-4 text-xs text-grigio-medio">
+            🔒 I tuoi dati sono al sicuro. Niente spam, solo contenuti di valore.
+          </p>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
