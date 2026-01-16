@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-nero-carbone antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Container standard */
+  .container-ear {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Prose ottimizzato per articoli */
+  .article-content {
+    @apply prose prose-lg max-w-none
+      prose-headings:font-heading prose-headings:text-nero-carbone
+      prose-p:text-nero-carbone prose-p:leading-relaxed
+      prose-a:text-verde-salvia prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-nero-carbone prose-strong:font-semibold
+      prose-img:rounded-lg prose-img:shadow-card;
+  }
+}
+
+@layer utilities {
+  /* Transizioni smooth */
+  .transition-ear {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-ear hover:translate-y-[-4px] hover:shadow-card-hover;
+  }
+}
