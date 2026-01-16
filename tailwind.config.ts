@@ -9,51 +9,45 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // EAR Palette - Primari
-        'verde-salvia': {
-          DEFAULT: '#A8C5A8',
-          50: '#F0F5F0',
-          100: '#E1EBE1',
-          200: '#C3D7C3',
-          300: '#A8C5A8',
-          400: '#8DB38D',
-          500: '#72A172',
-          600: '#5B815B',
-          700: '#446144',
-          800: '#2D412D',
-          900: '#162016',
+        // Menti in Fiore - Palette Pastello Playful
+        'rosa-pastello': {
+          DEFAULT: '#ff6b9d',
+          light: '#ffb3d1',
+          lighter: '#ffe5f0',
+          soft: '#f9caae',
         },
-        'beige-caldo': {
-          DEFAULT: '#F5E6D3',
-          50: '#FEFDFB',
-          100: '#FDF9F3',
-          200: '#FAF3E7',
-          300: '#F5E6D3',
-          400: '#F0D9BF',
-          500: '#EBCCAB',
-          600: '#E6BF97',
-          700: '#D4A87A',
-          800: '#C2915D',
-          900: '#B07A40',
+        'verde-menta': {
+          DEFAULT: '#a8e6cf',
+          light: '#c8f0dd',
+          dark: '#81c784',
         },
-        'blu-nebbia': {
-          DEFAULT: '#C8D5E0',
-          50: '#F5F7FA',
-          100: '#EBF0F5',
-          200: '#D7E0EB',
-          300: '#C8D5E0',
-          400: '#B9CAD5',
-          500: '#AABFCA',
-          600: '#9BB4BF',
-          700: '#7D9DAC',
-          800: '#5F8699',
-          900: '#416F86',
+        'azzurro-cielo': {
+          DEFAULT: '#64b5f6',
+          light: '#e6f4fb',
+          soft: '#bbdefb',
         },
-        // EAR Palette - Secondari
-        'corallo-morbido': '#FFB5A7',
-        'viola-lavanda': '#E8D5F2',
-        'giallo-burro': '#FFF4D6',
-        // Neutrali
+        'viola-sogno': {
+          DEFAULT: '#ab47bc',
+          dark: '#8e24aa',
+          light: '#f3e5f5',
+        },
+        'giallo-sole': {
+          DEFAULT: '#ffd54f',
+          light: '#fef7cd',
+          soft: '#fff3e0',
+        },
+        'corallo': {
+          DEFAULT: '#ff7961',
+          soft: '#ffb3a7',
+        },
+        // Neutrali caldi
+        'marrone-caldo': '#5f3d2c',
+        'grigio-soft': '#f5f5f5',
+        'bianco': '#ffffff',
+
+        // Colori legacy per compatibilità
+        'verde-salvia': '#a8e6cf',
+        'beige-caldo': '#fff3e0',
         'nero-carbone': '#2A2A2A',
         'grigio-medio': '#707070',
       },
@@ -91,8 +85,26 @@ const config: Config = {
         'xl': '16px',
       },
       boxShadow: {
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'card': '0 8px 32px rgba(0, 0, 0, 0.1)',
+        'card-hover': '0 12px 40px rgba(0, 0, 0, 0.15)',
+        'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'playful': '0 10px 30px rgba(255, 107, 157, 0.2)',
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'float-slow': 'float 8s ease-in-out infinite',
+        'float-delay': 'float 7s ease-in-out 1s infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+      },
+      backgroundImage: {
+        'gradient-playful': 'linear-gradient(135deg, #ff6b9d 0%, #ab47bc 100%)',
+        'gradient-calm': 'linear-gradient(135deg, #a8e6cf 0%, #64b5f6 100%)',
+        'gradient-sunshine': 'linear-gradient(135deg, #ffd54f 0%, #ff7961 100%)',
       },
     },
   },

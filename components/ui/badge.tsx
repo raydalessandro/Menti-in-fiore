@@ -11,14 +11,13 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       <span
         ref={ref}
         className={cn(
-          'inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-medium transition-ear',
+          'inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition-all duration-300 shadow-soft',
           {
-            'bg-verde-salvia/10 text-verde-salvia': variant === 'default',
-            'bg-corallo-morbido/20 text-red-700': variant === 'babies',
-            'bg-blu-nebbia/30 text-blu-nebbia-700': variant === 'toddlers',
-            'bg-viola-lavanda/30 text-purple-700': variant === 'preschool',
-            'bg-giallo-burro text-yellow-700': variant === 'activities',
-            'bg-verde-salvia/20 text-verde-salvia-700': variant === 'parents',
+            'bg-verde-menta-light text-verde-menta-dark border border-verde-menta': variant === 'default' || variant === 'parents',
+            'bg-rosa-pastello-lighter text-rosa-pastello border border-rosa-pastello': variant === 'babies',
+            'bg-azzurro-cielo-light text-azzurro-cielo border border-azzurro-cielo': variant === 'toddlers',
+            'bg-viola-sogno-light text-viola-sogno-dark border border-viola-sogno': variant === 'preschool',
+            'bg-giallo-sole-light text-yellow-700 border border-giallo-sole': variant === 'activities',
           },
           className
         )}
